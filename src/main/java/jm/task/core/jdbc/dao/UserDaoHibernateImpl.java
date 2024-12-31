@@ -57,16 +57,13 @@ public class UserDaoHibernateImpl implements UserDao {
             user.setName(name);
             user.setLastName(lastName);
             user.setAge(age);
-
             session.persist(user);
-
-            // Коммит транзакции
             transaction.commit();
             System.out.println("Пользователь " + name + " успешно сохранен!");
 
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Откат транзакции в случае ошибки
+                transaction.rollback();
 
             }
             e.printStackTrace();
@@ -88,7 +85,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Откат транзакции в случае ошибки
+                transaction.rollback();
             }
             e.printStackTrace();
         }
@@ -124,7 +121,7 @@ public class UserDaoHibernateImpl implements UserDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace(); // Логируем ошибку
+            e.printStackTrace();
         }
     }
 }
