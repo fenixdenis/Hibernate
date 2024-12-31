@@ -42,7 +42,7 @@ public class UserDaoHibernateImpl implements UserDao {
             System.out.println("Таблица users успешно удалена!");
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Откат изменений в случае ошибки
+                transaction.rollback();
             }
             e.printStackTrace();
         }
